@@ -11,16 +11,20 @@ build: main.exe
 clean:
 	-rm -f *.exe *.log
 
-all: main.exe server.exe client.exe 
+all:
+	$(MAKE) -j3 main.exe server.exe client.exe
 
-main.exe: main.cpp 
-	g++ -I common -o main.exe   -g main.cpp   common/*.cpp
+INC = -I common
+CMN = common/common_udp.cpp common/rnd.cpp
 
-client.exe: 
-	g++ -I common -o client.exe -g client.cpp common/client_udp.cpp common/common_udp.cpp common/rnd.cpp common/state_mashine.cpp
+main.exe: main.cpp
+	g++ $(INC) -o main.exe   -g main.cpp   common/*.cpp
+
+client.exe:
+	g++ $(INC) -o client.exe -g client.cpp $(CMN) common/client_udp.cpp common/state_mashine.cpp
 
 server.exe:
-	g++ -I common -o server.exe -g server.cpp common/common_udp.cpp common/rnd.cpp common/server_udp.cpp
+	g++ $(INC) -o server.exe -g server.cpp $(CMN) common/server_udp.cpp
 
 run: main.exe
 	./main.exe

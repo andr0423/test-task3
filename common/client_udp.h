@@ -12,7 +12,7 @@ class ClientUdp : public CommonUdp
     StMashine * stm;
 
 public:
-    ClientUdp( int port, in_addr_t host = INADDR_LOOPBACK, unsigned char id=0 );
+    ClientUdp(int port, in_addr_t host = INADDR_LOOPBACK, unsigned char id=0);
     bool init();
     void start();
 };

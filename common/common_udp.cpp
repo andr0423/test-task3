@@ -4,11 +4,11 @@
 
 using namespace std;
 
-CommonUdp::CommonUdp(int port, in_addr_t host, unsigned char id )
+CommonUdp::CommonUdp(int port, in_addr_t host, unsigned char id)
     : srv_host(host), srv_port(port), id(id)
 {
     srv_addr_len = sizeof(srv_addr);
-    memset(&srv_addr, 0, srv_addr_len); 
+    memset(&srv_addr, 0, srv_addr_len);
 
     memset(&buf, 0, 4);
 

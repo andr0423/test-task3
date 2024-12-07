@@ -23,4 +23,3 @@ public:
     bool step(unsigned char);
     Sn   getState();
 };
-

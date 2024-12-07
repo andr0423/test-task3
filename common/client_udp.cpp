@@ -17,7 +17,7 @@ bool ClientUdp::init()
     srv_addr.sin_family = AF_INET;
     srv_addr.sin_port = htons(srv_port);
     srv_addr.sin_addr.s_addr = htonl(srv_host);
-    
+
     auto bnd = connect(sockfd, (struct sockaddr *)&srv_addr, srv_addr_len);
     if( bnd < 0)
     {
@@ -30,7 +30,7 @@ bool ClientUdp::init()
 void ClientUdp::start(){
 
     this->init();
-    
+
     is_serving = true;
     unsigned char x, y;
     unsigned int counter=0;
@@ -60,14 +60,14 @@ void ClientUdp::start(){
         cur = stm->getState();
 
 
-        cout 
+        cout
             << setw(6)
-            << counter << " - " 
-            
-            << "id[" << setw(2) << setfill(' ') << dec << +buf[0] << "]: "
+            << counter << " - "
+
+            << "id[" << setw(4) << setfill(' ') << dec << +buf[0] << "]: "
 
             << setw(3) << setfill(' ') << dec
-            << +x << " >> " 
+            << +x << " >> "
 
             << setw(3) << setfill(' ') << dec
             << +y << " "

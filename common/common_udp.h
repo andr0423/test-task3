@@ -31,10 +31,9 @@ protected:
     bool is_serving = false;
 
 public:
-    CommonUdp(int port, in_addr_t host=INADDR_LOOPBACK, unsigned char id=0 );
+    CommonUdp(int port, in_addr_t host=INADDR_LOOPBACK, unsigned char id=0);
     void stop();
     bool init();
     virtual void start() = 0;
 
 };
-
